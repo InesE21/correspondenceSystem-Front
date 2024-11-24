@@ -1,0 +1,54 @@
+.footer {
+    position: relative; /* Allows the footer to flow with the content */
+    background-color: #eafcfb; /* Background color */
+    border-top: 1px solid var(--surface-border); /* Subtle border for separation */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    width: 100%; /* Ensures the footer spans the full width */
+    padding: 1rem; /* Internal spacing */
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    font-family: 'Inter', sans-serif; /* Font family for the footer text */
+    color: var(--text-color-secondary); /* Text color */
+    text-align: center; /* Centers text alignment */
+}
+
+.footer-content {
+    font-size: 1rem; /* Standard font size */
+    line-height: 1.5; /* Comfortable line spacing */
+    color: var(--text-color-secondary); /* Text color for the footer content */
+}
+
+.footer-content p {
+    margin: 0; /* Removes extra margins */
+}
+
+.footer-content a {
+    color: var(--primary-color); /* Links with primary color */
+    text-decoration: none; /* Removes underline from links */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.footer-content a:hover {
+    color: var(--primary-hover-color); /* Brighter color on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        font-size: 0.9rem; /* Slightly smaller font size for mobile */
+        padding: 0.5rem; /* Adjust padding for mobile devices */
+    }
+}
+
+/* Flexbox ensures the footer remains at the bottom */
+body {
+    display: flex;
+    flex-direction: column; /* Arranges elements in a column */
+    min-height: 100vh; /* Ensures the body takes up the full viewport height */
+    margin: 0; /* Removes default margins */
+}
+
+main {
+    flex: 1; /* Expands the main content to fill available space */
+}

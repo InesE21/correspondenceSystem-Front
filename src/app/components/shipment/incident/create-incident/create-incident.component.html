@@ -1,0 +1,64 @@
+<p-card header="Create Incident" [style]="{ width: '100%' }">
+    <ng-template pTemplate="header"></ng-template>
+
+    <div>
+        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+
+            <div class="grid">
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="description"
+                            placeholder="Incident description" title="description">
+                    </div>
+                </div>
+
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="date" pInputText formControlName="incidentDate"
+                            placeholder="Incident Date" title="incidentDate">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-building"></i></span>
+                        <select class="w-12" pInputText formControlName="correspondence" title="correspondence">
+                            <option value="" disabled>Select Correspondence</option>
+                            <option *ngFor="let correspondence of correspondences" [value]="correspondence.id">{{ correspondence.code }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-briefcase"></i></span>
+                        <select class="w-12" pInputText formControlName="resolutionStatus" title="resolutionStatus">
+                            <option value="" disabled>Select Status</option>
+                            <option value="REPORTED">Reported</option>
+                            <option value="SCALED">Scaled</option>
+                            <option value="IN RESOLUTION">In Resolution</option>
+                            <option value="RESOLVED">Resolved</option>
+                            <option value="CLOSED">Closed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="flex justify-content-center flex-wrap">
+                <button pButton pRipple label="Save" icon="pi pi-save" severity="info" class="mr-4" type="submit">
+                </button>
+                <button pButton pRipple label="Cancel" icon="pi pi-times-circle" severity="warning" class="mr-4"
+                    type="button" (click)="cancel()">
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <ng-template pTemplate="footer"></ng-template>
+</p-card>

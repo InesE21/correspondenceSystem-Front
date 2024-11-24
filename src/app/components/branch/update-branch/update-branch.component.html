@@ -1,0 +1,77 @@
+
+<!-- The UpdateBranchComponent is a part of an Angular application 
+ designed to handle the updating of branch information. 
+ This component retrieves the details of a specific branch, populates a form with its data,
+ and allows users to update the branch's details. Once the update is submitted, the changes 
+ are sent to the backend using the BranchService. -->
+ 
+ <p-card header="Update Branches" [style]="{ width: '100%' }">
+  <ng-template pTemplate="header"></ng-template>
+  <div>
+    <!-- Form for updating branch details -->
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+      <div class="grid">
+        <!-- Input field for Branch Name -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-user"></i>
+            </span>
+            <input
+              class="w-12"
+              type="text"
+              pInputText
+              formControlName="nameB"
+              placeholder="Branch Name"
+              title="Branch Name"
+            />
+          </div>
+        </div>
+
+        <!-- Input field for Branch Location -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-wallet"></i>
+            </span>
+            <input
+              class="w-12"
+              type="text"
+              pInputText
+              formControlName="location"
+              placeholder="Branch Location"
+              title="Branch Location"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex justify-content-center flex-wrap">
+        <!-- Submit button -->
+        <button
+          pButton
+          pRipple
+          label="Update"
+          icon="pi pi-save"
+          severity="info"
+          class="mr-4"
+          type="submit"
+        ></button>
+
+        <!-- Cancel button -->
+        <button
+          pButton
+          pRipple
+          label="Cancel"
+          icon="pi pi-times-circle"
+          severity="warning"
+          class="mr-4"
+          type="button"
+          (click)="cancel()"
+        ></button>
+      </div>
+    </form>
+  </div>
+  <ng-template pTemplate="footer"></ng-template>
+</p-card>

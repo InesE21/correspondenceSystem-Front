@@ -1,0 +1,29 @@
+{
+    "data":[
+        {
+            "itemImageSrc": "images/galleria1.png",
+            "alt": "Integrante 1",
+            "title": "Integrante 1"
+        },
+        {
+            "itemImageSrc": "images/galleria2.png",
+            "alt": "Integrante  2",
+            "title": "Integrante 2"
+        },
+        {
+            "itemImageSrc": "images/galleria3.png",
+            "alt": "Integrante 3",
+            "title": "Integrante 3"
+        },
+        {
+            "itemImageSrc": "images/galleria4.png",
+            "alt":  "Logo de la Empresa",
+            "title": "Logo"
+        },
+        {
+            "itemImageSrc": "images/galleria5.jpg",
+            "alt": "Imagenes de Referencia",
+            "title": ""
+        }
+    ]
+}

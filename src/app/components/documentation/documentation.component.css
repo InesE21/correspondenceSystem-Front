@@ -1,0 +1,158 @@
+/* Estilo general para la tarjeta (card) */
+.card {
+    /* Centra la tarjeta en la página y agrega un margen uniforme alrededor */
+    margin: 20px auto;
+    /* Agrega un espacio interno para separar el contenido de los bordes */
+    padding: 20px 30px;
+    /* Redondea las esquinas de la tarjeta para darle un aspecto más moderno */
+    border-radius: 8px;
+    /* Establece un color de fondo claro */
+    background-color: #f9f9f9;
+    /* Agrega una sombra suave alrededor de la tarjeta */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los títulos principales de nivel 2 dentro de la tarjeta */
+.card h2 {
+    /* Tamaño grande del texto para resaltar la importancia del título */
+    font-size: 2rem;
+    /* Aumenta el grosor del texto para destacar */
+    font-weight: bold;
+    /* Color de texto gris oscuro */
+    color: #4a4a4a;
+    /* Espaciado inferior para separar del contenido siguiente */
+    margin-bottom: 10px;
+    /* Línea decorativa debajo del título */
+    border-bottom: 2px solid #ccc;
+    /* Espaciado interno debajo de la línea decorativa */
+    padding-bottom: 5px;
+}
+
+/* Estilo para los subtítulos de nivel 4 */
+.card h4 {
+    /* Tamaño de fuente menor que el título principal */
+    font-size: 1.5rem;
+    /* Color de texto ligeramente más oscuro */
+    color: #333;
+    /* Espaciado inferior para separar del contenido siguiente */
+    margin-bottom: 15px;
+}
+
+/* Estilo para los párrafos dentro de la tarjeta */
+.card p {
+    /* Incrementa la altura de las líneas para mejorar la legibilidad */
+    line-height: 1.6;
+    /* Tamaño de fuente estándar para párrafos */
+    font-size: 1rem;
+    /* Color de texto gris medio */
+    color: #555;
+    /* Espaciado inferior para separar del contenido siguiente */
+    margin-bottom: 15px;
+}
+
+/* Estilo para los bloques de código dentro de la tarjeta */
+.app-code {
+    /* Fondo ligeramente gris para resaltar los bloques de código */
+    background-color: #f3f3f3;
+    /* Espaciado interno uniforme */
+    padding: 15px;
+    /* Barra lateral azul para enfatizar el bloque */
+    border-left: 4px solid #007bff;
+    /* Esquinas redondeadas para el bloque */
+    border-radius: 4px;
+    /* Uso de una fuente monoespaciada para código */
+    font-family: monospace;
+    /* Tamaño de fuente ligeramente menor */
+    font-size: 0.95rem;
+    /* Color del texto más oscuro */
+    color: #333;
+    /* Permite desplazamiento horizontal si el contenido excede el ancho */
+    overflow-x: auto;
+    /* Espaciado inferior para separar del contenido siguiente */
+    margin-bottom: 20px;
+}
+
+/* Ajustes para el contenido dentro de los bloques de código */
+.app-code code {
+    /* Permite que el código se ajuste automáticamente si es largo */
+    white-space: pre-wrap;
+    /* Rompe las palabras largas para evitar desbordamientos */
+    word-wrap: break-word;
+}
+
+/* Estilo para los enlaces dentro de la tarjeta */
+.card a {
+    /* Color azul para indicar enlaces interactivos */
+    color: #007bff;
+    /* Quita el subrayado para un aspecto más limpio */
+    text-decoration: none;
+    /* Aumenta el grosor del texto para destacar */
+    font-weight: bold;
+}
+
+/* Cambios al pasar el cursor sobre los enlaces */
+.card a:hover {
+    /* Añade un subrayado para indicar interactividad */
+    text-decoration: underline;
+}
+
+/* Estilo para el texto con una clase de énfasis */
+.card .font-semibold {
+    /* Grosor medio del texto */
+    font-weight: 600;
+}
+
+/* Ajustes de diseño para pantallas más pequeñas (hasta 991px de ancho) */
+@media screen and (max-width: 991px) {
+    .card {
+        /* Reduce el relleno para ajustarse al tamaño de pantalla */
+        padding: 15px;
+    }
+
+    .app-code {
+        /* Reduce el tamaño de fuente en bloques de código */
+        font-size: 0.85rem;
+        /* Reduce el espacio interno */
+        padding: 10px;
+    }
+
+    .card h2 {
+        /* Reduce el tamaño de los títulos principales */
+        font-size: 1.8rem;
+    }
+
+    .card h4 {
+        /* Reduce el tamaño de los subtítulos */
+        font-size: 1.3rem;
+    }
+}
+
+/* Estilo para el contenedor de videos responsivo */
+.video-container {
+    /* Posición relativa para permitir el uso de un iframe interno */
+    position: relative;
+    /* Ancho completo del contenedor */
+    width: 100%;
+    /* Altura relativa para mantener proporciones 16:9 */
+    height: 0;
+    padding-bottom: 56.25%;
+    /* Espaciado superior y bordes decorativos */
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    /* Oculta cualquier contenido desbordado */
+    overflow: hidden;
+}
+
+/* Estilo para el iframe del video */
+.video-container iframe {
+    /* Posiciona el video dentro del contenedor */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Ocupa todo el ancho y altura del contenedor */
+    width: 100%;
+    height: 100%;
+    /* Quita bordes externos */
+    border: 0;
+}

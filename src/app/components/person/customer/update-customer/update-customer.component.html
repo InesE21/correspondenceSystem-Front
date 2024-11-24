@@ -1,0 +1,101 @@
+<p-card header="Update Customers" [style]="{ width: '100%' }"> <!-- Card container for the "Update Customers" form -->
+  
+  <ng-template pTemplate="header">
+    <!-- Empty header section (can be used for adding additional content like titles or buttons in the future) -->
+  </ng-template>
+  
+  <div>
+    <!-- Form to update customer details -->
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+      
+      <!-- Customer DNI and Full Name fields -->
+      <div class="grid">
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <!-- Input for Customer DNI -->
+            <input class="w-12" type="text" pInputText formControlName="dni" placeholder="customer dni" title="dni">
+          </div>
+        </div>
+        
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <!-- Input for Customer Full Name -->
+            <input class="w-12" type="text" pInputText formControlName="fullname" placeholder="customer fullname" title="fullname">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Customer Address and Phone Number fields -->
+      <div class="grid">
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <!-- Input for Customer Address -->
+            <input class="w-12" type="text" pInputText formControlName="address" placeholder="customer address" title="address">
+          </div>
+        </div>
+
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <!-- Input for Customer Phone Number -->
+            <input class="w-12" type="text" pInputText formControlName="phoneNumber" placeholder="customer phoneNumber" title="phoneNumber">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Customer Email and Type fields -->
+      <div class="grid">
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <!-- Input for Customer Email -->
+            <input class="w-12" type="text" pInputText formControlName="mail" placeholder="customer mail" title="mail">
+          </div>
+        </div>
+
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <!-- Select for Customer Type (Normal or Premium) -->
+            <select class="w-12" formControlName="customer_type" title="Customer Type">
+              <option value="" disabled selected>Select Customer Type</option>
+              <option value="NORMAL">Normal</option>
+              <option value="PREMIUM">Premium</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form action buttons (Update and Cancel) -->
+      <div class="flex justify-content-center flex-wrap">
+        <button 
+          pButton 
+          pRipple
+          label="Update"
+          icon="pi pi-save"  
+          severity="info"
+          class="mr-4"
+          type="submit"  
+        ></button>
+
+        <button 
+          pButton 
+          pRipple
+          label="Cancel"
+          icon="pi pi-times-circle"  
+          severity="warning"
+          class="mr-4"
+          type="button"  
+          (click)="cancel()"
+        ></button>
+      </div>
+    </form>
+  </div>
+  
+  <ng-template pTemplate="footer">
+    <!-- Empty footer section (can be used for additional footer content) -->
+  </ng-template>
+</p-card>

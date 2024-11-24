@@ -1,0 +1,116 @@
+/* 
+Dashboard Grid and Gallery Styles
+
+This CSS file defines the styling for the dashboard layout and a responsive image gallery. 
+It includes styles for the grid layout, card components, and gallery items to ensure a 
+consistent, modern design with interactive elements.
+*/
+
+/* Grid container for dashboard components */
+.grid {
+  display: flex; /* Enables the use of flexbox for alignment */
+  gap: 1rem; /* Space between items in the grid */
+  flex-wrap: nowrap; /* Prevents items from wrapping to the next row */
+  justify-content: space-between; /* Distributes items evenly across the row */
+  padding: 1rem; /* Adds inner spacing for the grid */
+  margin: 1rem; /* Adds spacing around the grid */
+}
+
+/* Individual column styles for responsive panels */
+.col-12, .lg\:col-6, .xl\:col-3 {
+  flex: 1 1 calc(25% - 1rem); /* Each column takes 25% width minus the gap */
+  max-width: calc(25% - 1rem); /* Limits the maximum width for each column */
+}
+
+/* Styling for card components */
+.card {
+  background-color: #ffffff; /* Sets the card background to white */
+  border-radius: 0.5rem; /* Rounds the corners of the card */
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  padding: 1.5rem; /* Inner spacing for card content */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for cards */
+.card:hover {
+  transform: translateY(-0.5rem); /* Moves the card slightly upward */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhances shadow for a lifted appearance */
+}
+
+/* Utility class for flexbox layout */
+.flex {
+  display: flex; /* Enables flexbox on elements */
+}
+
+/* Aligns items along the main axis with space between */
+.justify-content-between {
+  justify-content: space-between;
+}
+
+/* Centers items along the cross axis */
+.align-items-center {
+  align-items: center;
+}
+
+/* Background color utility classes */
+.bg-blue-100 { background-color: #e7f3ff; } /* Light blue background */
+.bg-orange-100 { background-color: #fff4e5; } /* Light orange background */
+.bg-cyan-100 { background-color: #e5f9ff; } /* Light cyan background */
+.bg-purple-100 { background-color: #f4e5ff; } /* Light purple background */
+.bg-green-100 { background-color: #e6fce5; } /* Light green background */
+.bg-red-100 { background-color: #ffe5e5; } /* Light red background */
+
+/* Makes elements circular */
+.border-round {
+  border-radius: 50%;
+}
+
+/* Text color utility classes */
+.text-blue-500 { color: #007bff; } /* Blue text */
+.text-orange-500 { color: #ff9800; } /* Orange text */
+.text-cyan-500 { color: #00bcd4; } /* Cyan text */
+.text-purple-500 { color: #9c27b0; } /* Purple text */
+.text-green-500 { color: #4caf50; } /* Green text */
+.text-red-500 { color: #f44336; } /* Red text */
+
+/* General text styling */
+.text-500 { color: #6c757d; } /* Gray text */
+.text-900 { color: #212529; } /* Darker gray text */
+.font-medium { font-weight: 500; } /* Medium font weight */
+.text-xl { font-size: 1.25rem; } /* Larger text size */
+
+/* Gallery container styles */
+.gallery-container {
+  margin: 0 auto; /* Centers the gallery on the page */
+  max-width: 1200px; /* Sets a maximum width for the gallery */
+}
+
+/* Flexbox layout for the gallery */
+.gallery {
+  display: flex; /* Enables flexbox for gallery layout */
+  flex-wrap: wrap; /* Allows items to wrap to the next line if necessary */
+  gap: 20px; /* Space between gallery items */
+  justify-content: center; /* Centers gallery items in a row */
+}
+
+/* Individual gallery item styles */
+.gallery-item {
+  flex: 1 1 100%; /* Each item takes full width initially */
+  text-align: center; /* Centers the content of the gallery item */
+}
+
+/* Image styling within gallery items */
+.gallery-item img {
+  width: 80%; /* Sets the image width to 80% of its container */
+  height: auto; /* Maintains the image aspect ratio */
+  border-radius: 8px; /* Adds rounded corners to images */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a polished look */
+  margin: 0 auto; /* Centers the image horizontally */
+}
+
+/* Title styles for gallery items */
+.gallery-item h4 {
+  margin-top: 10px; /* Space above the title */
+  font-size: 1.2rem; /* Slightly larger font size for titles */
+  color: #555; /* Medium gray color for text */
+}

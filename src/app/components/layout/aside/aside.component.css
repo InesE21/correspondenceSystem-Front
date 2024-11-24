@@ -1,0 +1,74 @@
+/* General style for the menu container */
+.card {
+    background-color: #f8f9fa; /* Light background color for the menu card */
+    border-radius: 8px; /* Rounded corners for a smooth look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth effect */
+    padding: 1rem; /* Internal spacing */
+    width: 320px; /* Fixed width for the card */
+  }
+  
+  /* Style for menu headers */
+  .p-panelmenu .p-panelmenu-header {
+    background-color: #007bff; /* Primary color (blue) for menu headers */
+    color: #fff; /* White text for better contrast */
+    font-weight: bold; /* Bold text for emphasis */
+    font-size: 1.2rem; /* Slightly larger font size */
+    padding: 1.5rem; /* Spacing inside the headers */
+    border-radius: 6px; /* Rounded corners for header */
+    transition: all 0.3s ease; /* Smooth transition effects on hover */
+  }
+  
+  /* Hover effect on headers */
+  .p-panelmenu .p-panelmenu-header:hover {
+    background-color: #0056b3; /* Darker blue when hovered */
+    cursor: pointer; /* Pointer cursor to indicate interactivity */
+  }
+  
+  /* Style for menu items */
+  .p-panelmenu .p-menuitem-link {
+    padding: 1rem; /* Internal spacing for menu items */
+    border-radius: 6px; /* Rounded corners for items */
+    transition: all 0.3s ease; /* Smooth transition effects on hover */
+    color: #ffffff; /* White text color for consistency with headers */
+    font-size: 1.2rem; /* Font size for readability */
+    font-weight: 500; /* Slightly bold text */
+  }
+  
+  /* Hover effect on menu items */
+  .p-panelmenu .p-menuitem-link:hover {
+    background-color: #f1f1f1; /* Light background for hover effect */
+    color: #007bff; /* Blue text color when hovered */
+    transform: scale(1.02); /* Slight zoom effect for interactivity */
+  }
+  
+  /* Style for menu item icons */
+  .p-panelmenu .p-menuitem-icon {
+    font-size: 1.2rem; /* Size of the icons */
+    margin-right: 0.5rem; /* Space between the icon and the text */
+    color: #007bff; /* Blue color for icons to match theme */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  /* Icon color change on hover */
+  .p-panelmenu .p-menuitem-link:hover .p-menuitem-icon {
+    color: #0056b3; /* Darker blue for icon when hovered */
+  }
+  
+  /* Style for submenu items */
+  .p-panelmenu .p-menuitem {
+    margin-left: 1rem; /* Indentation to reflect hierarchy */
+  }
+  
+  /* Active submenu items */
+  .p-panelmenu .p-menuitem-link.p-highlight {
+    background-color: #e9ecef; /* Light gray background to indicate active state */
+    font-weight: bold; /* Bold text for emphasis on active item */
+    color: #007bff; /* Blue text to highlight the active item */
+  }
+  
+  /* Style for expanded menu headers */
+  .p-panelmenu .p-panelmenu-header-open {
+    background-color: #0056b3; /* Darker blue for expanded headers */
+    color: #fff; /* White text for readability */
+  }
+  

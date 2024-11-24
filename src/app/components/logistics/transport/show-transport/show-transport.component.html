@@ -1,0 +1,48 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">Transports</h3> <!-- Header displaying the title "Transports" -->
+            <div class="mt-2 mr-2">
+                <!-- Button to navigate to the "Add Transport" page -->
+                <a pButton pRipple label="Add Transport" icon="pi pi-user-plus" class="bg-cyan-600"
+                    [routerLink]="['/logistics/transport/new']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+
+    <p>
+        <!-- Table to display the list of transports -->
+        <p-table [value]="transports">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Transportation</th> <!-- Column for the transportation method -->
+                    <th>Capacity</th> <!-- Column for the transport capacity -->
+                    <th class="flex justify-content-center flex-wrap">Actions</th> <!-- Column for action buttons -->
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-transport>
+                <tr>
+                    <td>{{ transport.transportation }}</td> <!-- Displays the transport method -->
+                    <td>{{ transport.capacity }}</td> <!-- Displays the transport capacity -->
+                    <td>
+                        <!-- Button for printing the transport details -->
+                        <button pButton pRipple icon="pi pi-print" class="bg-cyan-600 mr-1">
+                        </button>
+
+                        <!-- Button to navigate to the edit page for a specific transport -->
+                        <a pButton pRipple icon="pi pi-sync" severity="warning" class="mr-1"
+                            [routerLink]="['/logistics/transport/edit', transport.id]">
+                        </a>
+
+                        <!-- Button to delete the specific transport -->
+                        <button pButton pRipple severity="danger" icon="pi pi-eraser" class="mr-1"
+                            (click)="delete(transport.id)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+</p-card>

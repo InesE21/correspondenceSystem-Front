@@ -1,0 +1,22 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+      <img src="images/logo.png" alt="l">
+      <span>SENDFAST</span>
+    </a>
+
+    <div 
+      #topbarmenu 
+      class="layout-topbar-menu" 
+      [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+      <button class="p-link layout-topbar-button">
+        <i class="pi pi-calendar"></i>
+      </button>
+      <button class="p-link layout-topbar-button">
+        <i class="pi pi-user"></i>
+      </button>
+      <button class="p-link layout-topbar-button" [routerLink]="'/documentation'">
+        <i class="pi pi-cog"></i>
+      </button>
+    </div>
+  </div>
+  

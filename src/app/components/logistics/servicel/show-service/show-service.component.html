@@ -1,0 +1,75 @@
+<!-- Card component displaying a list of logistic services -->
+<p-card class="w-12 h-full">
+    <!-- Header section -->
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <!-- Title -->
+            <h3 class="ml-4">Services</h3>
+            <!-- Add Service button -->
+            <div class="mt-2 mr-2">
+                <a 
+                    pButton 
+                    pRipple 
+                    label="Add Service" 
+                    icon="pi pi-user-plus" 
+                    class="bg-cyan-600"
+                    [routerLink]="['/logistics/servicel/new']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Table to display the list of services -->
+    <p>
+        <p-table [value]="servicess">
+            <!-- Table header -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Transportation</th>
+                    <th>Cost</th>
+                    <th class="flex justify-content-center flex-wrap">Actions</th>
+                </tr>
+            </ng-template>
+
+            <!-- Table body with dynamic data -->
+            <ng-template pTemplate="body" let-service>
+                <tr>
+                    <!-- Transportation type -->
+                    <td>{{ service.transportation }}</td>
+                    <!-- Service cost -->
+                    <td>{{ service.cost }}</td>
+                    <!-- Action buttons -->
+                    <td>
+                        <!-- Print button (currently no functionality) -->
+                        <button 
+                            pButton 
+                            pRipple 
+                            icon="pi pi-print" 
+                            class="bg-cyan-600 mr-1">
+                        </button>
+
+                        <!-- Update button linking to the edit form -->
+                        <a 
+                            pButton 
+                            pRipple 
+                            icon="pi pi-sync" 
+                            severity="warning" 
+                            class="mr-1"
+                            [routerLink]="['/logistics/servicel/edit', service.id]">
+                        </a>
+
+                        <!-- Delete button with a click handler to delete a service -->
+                        <button 
+                            pButton 
+                            pRipple 
+                            severity="danger" 
+                            icon="pi pi-eraser" 
+                            class="mr-1"
+                            (click)="delete(service.id)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+</p-card>

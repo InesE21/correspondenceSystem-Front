@@ -1,0 +1,100 @@
+<p-card header="Create Correspondence" [style]="{ width: '100%' }">
+    <ng-template pTemplate="header"></ng-template>
+
+    <div>
+        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+
+            <div class="grid">
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="correspondenceType"
+                            placeholder="Correspondence Type" title="correspondenceType">
+                    </div>
+                </div>
+
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="number" pInputText formControlName="weight"
+                            placeholder="Correspondence Weight in Kg" title="weight">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="dimensions"
+                            placeholder="Correspondence Dimensions" title="dimensions">
+                    </div>
+                </div>
+
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="date" pInputText formControlName="shipmentDate"
+                            placeholder="Shipment Date" title="shipmentDate">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="date" pInputText formControlName="deliveryDate"
+                            placeholder="Delivery Date" title="deliveryDate">
+                    </div>
+                </div>
+
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-building"></i></span>
+                        <select class="w-12" pInputText formControlName="sender" title="sender">
+                            <option value="" disabled>Select Sender</option>
+                            <option *ngFor="let sender of customers" [value]="sender.id">{{ sender.fullname }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-building"></i></span>
+                        <select class="w-12" pInputText formControlName="receiver" title="receiver">
+                            <option value="" disabled>Select Receiver</option>
+                            <option *ngFor="let receiver of customers" [value]="receiver.id">{{ receiver.fullname }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-building"></i></span>
+                        <select class="w-12" pInputText formControlName="service" title="service">
+                            <option value="" disabled>Select Service</option>
+                            <option *ngFor="let service of services" [value]="service.id">{{ service.transportation }} {{ service.cost }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="flex justify-content-center flex-wrap">
+                <button pButton pRipple label="Save" icon="pi pi-save" severity="info" class="mr-4" type="submit">
+                </button>
+                <button pButton pRipple label="Cancel" icon="pi pi-times-circle" severity="warning" class="mr-4"
+                    type="button" (click)="cancel()">
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <ng-template pTemplate="footer"></ng-template>
+</p-card>

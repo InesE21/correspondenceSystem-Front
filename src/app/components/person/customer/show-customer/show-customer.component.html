@@ -1,0 +1,84 @@
+<p-card class="w-12 h-full">  <!-- Card container for the customer list -->
+  
+  <!-- Header Section for the card -->
+  <ng-template pTemplate="header">
+    <div class="flex justify-content-between flex-wrap">
+      <h3 class="ml-4">Customers</h3>  <!-- Title for the customers section -->
+      <div class="mt-2 mr-2">
+        <!-- Button to navigate to the 'Add Customer' page -->
+        <a
+          pButton
+          pRipple
+          label="Add Customer"  
+          icon="pi pi-user-plus" 
+          class="bg-cyan-600"  
+          [routerLink]="['/persons/customer/new']"  
+        >
+        </a>
+      </div>
+    </div>
+  </ng-template>
+
+  <p>
+    <!-- Table to display the list of customers -->
+    <p-table [value]="customers">
+      
+      <!-- Table Header -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>DNI</th>  <!-- Column for DNI -->
+          <th>Name</th>  <!-- Column for the customer's name -->
+          <th>Address</th>  <!-- Column for the customer's address -->
+          <th>Phone Number</th>  <!-- Column for the customer's phone number -->
+          <th>Mail</th>  <!-- Column for the customer's email -->
+          <th>Type</th>  <!-- Column for the customer type (e.g., Normal, Premium) -->
+          <th class="flex justify-content-center flex-wrap">Actions</th>  <!-- Column for action buttons -->
+        </tr>
+      </ng-template>
+
+      <!-- Table Body (displays each customer) -->
+      <ng-template pTemplate="body" let-customer>
+        <tr>
+          <td>{{ customer.dni }}</td>  <!-- DNI of the customer -->
+          <td>{{ customer.fullname }}</td>  <!-- Full name of the customer -->
+          <td>{{ customer.address }}</td>  <!-- Address of the customer -->
+          <td>{{ customer.phoneNumber }}</td>  <!-- Phone number of the customer -->
+          <td>{{ customer.mail }}</td>  <!-- Email of the customer -->
+          <td>{{ customer.customer_type }}</td>  <!-- Customer type (Normal or Premium) -->
+          <td>
+            <!-- Button to print customer details -->
+            <button
+              pButton
+              pRipple
+              icon="pi pi-print"  
+              class="bg-cyan-600 mr-1"
+            >
+            </button>
+
+            <!-- Button to navigate to edit customer page -->
+            <a
+              pButton
+              pRipple
+              icon="pi pi-sync"  
+              severity="warning"  
+              class="mr-1"
+              [routerLink]="['/persons/customer/edit', customer.id]"  
+            >
+            </a>
+
+            <!-- Button to delete customer -->
+            <button
+              pButton
+              pRipple
+              severity="danger"  
+              icon="pi pi-eraser" 
+              class="mr-1"
+              (click)="delete(customer.id)"  
+            >
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p>
+</p-card>

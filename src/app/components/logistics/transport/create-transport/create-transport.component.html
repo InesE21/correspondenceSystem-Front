@@ -1,0 +1,80 @@
+<!-- Card Component for Creating Transport -->
+<p-card header="Create Transport" [style]="{ width: '100%' }">
+  <!-- Card header -->
+  <ng-template pTemplate="header"></ng-template>
+
+  <!-- Form -->
+  <div>
+    <form 
+      [formGroup]="form" 
+      novalidate 
+      (ngSubmit)="onSubmit()" 
+      class="p-3 bg-faded">
+
+      <div class="grid">
+        <!-- Transportation Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-truck"></i>
+            </span>
+            <select 
+              class="w-12 p-inputtext" 
+              formControlName="transportation" 
+              title="Transportation">
+              <option value="" disabled selected>Choose Transport</option>
+              <option value="TRUCK">Truck</option>
+              <option value="PLANE">Plane</option>
+              <option value="MOTORBIKE">Motorbike</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Capacity Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-wallet"></i>
+            </span>
+            <input 
+              class="w-12" 
+              type="number" 
+              pInputText 
+              formControlName="capacity" 
+              placeholder="Capacity" 
+              title="Capacity">
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-content-center flex-wrap">
+        <!-- Save Button -->
+        <button 
+          pButton 
+          pRipple 
+          label="Save" 
+          icon="pi pi-save" 
+          severity="info" 
+          class="mr-4" 
+          type="submit">
+        </button>
+
+        <!-- Cancel Button -->
+        <button 
+          pButton 
+          pRipple 
+          label="Cancel" 
+          icon="pi pi-times-circle" 
+          severity="warning" 
+          class="mr-4" 
+          type="button" 
+          (click)="cancel()">
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Card footer -->
+  <ng-template pTemplate="footer"></ng-template>
+</p-card>

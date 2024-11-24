@@ -1,0 +1,88 @@
+<!-- 
+Dashboard Grid Layout
+
+This HTML structure defines the main grid layout for the dashboard. It includes four key panels 
+that summarize different datasets and a gallery section to display images. The layout is 
+responsive and uses CSS classes for styling and alignment.
+
+The design uses utility classes for styling (e.g., `flex`, `justify-content-between`) and 
+customized color themes for better visual distinction between panels.
+-->
+<div class="grid">
+    <!-- Branches Panel -->
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Branches</span>
+                    <div class="text-900 font-medium text-xl">{{ branches.length }}</div>
+                </div>
+                <div 
+                    class="flex align-items-center justify-content-center bg-blue-100 border-round"
+                    style="width: 2.5rem; height: 2.5rem;">
+                    <i class="pi pi-building text-blue-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-green-500 font-medium">Recently added</span>
+        </div>
+    </div>
+
+    <!-- Customers Panel -->
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Customers</span>
+                    <div class="text-900 font-medium text-xl">{{ customers.length }}</div>
+                </div>
+                <div 
+                    class="flex align-items-center justify-content-center bg-cyan-100 border-round"
+                    style="width: 2.5rem; height: 2.5rem;">
+                    <i class="pi pi-users text-cyan-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-green-500 font-medium">Recently registered</span>
+        </div>
+    </div>
+
+    <!-- Employees Panel -->
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Employees</span>
+                    <div class="text-900 font-medium text-xl">{{ employees.length }}</div>
+                </div>
+                <div 
+                    class="flex align-items-center justify-content-center bg-purple-100 border-round"
+                    style="width: 2.5rem; height: 2.5rem;">
+                    <i class="pi pi-id-card text-purple-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-green-500 font-medium">Total employees</span>
+        </div>
+    </div>
+
+    <!-- Routes Panel -->
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Routes</span>
+                    <div class="text-900 font-medium text-xl">{{ routes.length }}</div>
+                </div>
+                <div 
+                    class="flex align-items-center justify-content-center bg-red-100 border-round"
+                    style="width: 2.5rem; height: 2.5rem;">
+                    <i class="pi pi-map text-red-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-green-500 font-medium">Defined routes</span>
+        </div>
+    </div>
+    
+    <!-- Gallery Section -->
+    <div class="gallery-container">
+        <div class="gallery" [innerHTML]="galleryHtml"></div>
+    </div>
+</div>

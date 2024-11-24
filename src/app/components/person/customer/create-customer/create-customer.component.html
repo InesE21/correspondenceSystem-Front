@@ -1,0 +1,120 @@
+<p-card header="Create Customer" [style]="{ width: '100%' }">
+  <!-- Card header section, can be used for adding a title or icons (currently empty) -->
+  <ng-template pTemplate="header"></ng-template>
+
+  <div>
+    <!-- Main form bound to Reactive Form using [formGroup] -->
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+    
+      <!-- First Grid: DNI and Full Name fields -->
+      <div class="grid">
+        <!-- DNI Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon next to input -->
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <!-- Input field for DNI with form control binding and title for accessibility -->
+            <input class="w-12" type="text" pInputText formControlName="dni" placeholder="customer dni" title="dni">
+            <!-- Error message for invalid DNI -->
+            <div *ngIf="form.get('dni').invalid && form.get('dni').touched">
+              <small class="p-error">DNI is required.</small>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Full Name Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon next to input -->
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <!-- Input field for full name -->
+            <input class="w-12" type="text" pInputText formControlName="fullname" placeholder="customer fullname" title="fullname">
+            <!-- Error message for invalid full name -->
+            <div *ngIf="form.get('fullname').invalid && form.get('fullname').touched">
+              <small class="p-error">Full name is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Grid: Address and Phone Number fields -->
+      <div class="grid">
+        <!-- Address Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon next to input -->
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <!-- Input field for address -->
+            <input class="w-12" type="text" pInputText formControlName="address" placeholder="customer address" title="address">
+            <!-- Error message for invalid address -->
+            <div *ngIf="form.get('address').invalid && form.get('address').touched">
+              <small class="p-error">Address is required.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone Number Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon next to input -->
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <!-- Input field for phone number -->
+            <input class="w-12" type="text" pInputText formControlName="phoneNumber" placeholder="customer phoneNumber" title="phoneNumber">
+            <!-- Error message for invalid phone number -->
+            <div *ngIf="form.get('phoneNumber').invalid && form.get('phoneNumber').touched">
+              <small class="p-error">Phone number is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Grid: Mail and Customer Type fields -->
+      <div class="grid">
+        <!-- Mail Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon next to input -->
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <!-- Input field for mail -->
+            <input class="w-12" type="text" pInputText formControlName="mail" placeholder="customer mail" title="mail">
+            <!-- Error message for invalid mail -->
+            <div *ngIf="form.get('mail').invalid && form.get('mail').touched">
+              <small class="p-error">Mail is required.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Type Field (Dropdown) -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon next to dropdown -->
+            <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+            <!-- Dropdown to select customer type -->
+            <select class="w-12" formControlName="customer_type" title="Customer Type">
+              <option value="" disabled selected>Select Customer Type</option>
+              <option value="NORMAL">Normal</option>
+              <option value="PREMIUM">Premium</option>
+            </select>
+            <!-- Error message for invalid customer type -->
+            <div *ngIf="form.get('customer_type').invalid && form.get('customer_type').touched">
+              <small class="p-error">Customer type is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons for Save and Cancel actions -->
+      <div class="flex justify-content-center flex-wrap">
+        <!-- Save Button (Triggers form submission) -->
+        <button pButton pRipple label="Save" icon="pi pi-save" severity="info" class="mr-4" type="submit"></button>
+
+        <!-- Cancel Button (Navigates away from the form) -->
+        <button pButton pRipple label="Cancel" icon="pi pi-times-circle" severity="warning" class="mr-4" type="button" (click)="cancel()"></button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Footer section, can be used for additional actions or information (currently empty) -->
+  <ng-template pTemplate="footer"></ng-template>
+</p-card>

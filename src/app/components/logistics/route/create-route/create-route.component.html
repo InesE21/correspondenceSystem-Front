@@ -1,0 +1,98 @@
+<p-card header="Create Route" [style]="{ width: '100%' }">
+    <!-- A container card with a header and full-width styling -->
+    <div>
+        <!-- Form definition -->
+        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+            <!-- Grid system to organize input fields into columns -->
+            <div class="grid">
+
+                <!-- Input field for "Origin" -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input 
+                          class="w-12" 
+                          type="text" 
+                          pInputText 
+                          formControlName="origin" 
+                          placeholder="Origin">
+                        <div *ngIf="origin?.invalid && origin?.touched" class="p-error">
+                            Origin is required.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input field for "Destination" -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+                        <input 
+                          class="w-12" 
+                          type="text" 
+                          pInputText 
+                          formControlName="destination" 
+                          placeholder="Destination">
+                        <div *ngIf="destination?.invalid && destination?.touched" class="p-error">
+                            Destination is required.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input field for "Stops" (optional) -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+                        <input 
+                          class="w-12" 
+                          type="number" 
+                          pInputText 
+                          formControlName="stops" 
+                          placeholder="Stops">
+                        <!-- No error message shown since 'stops' is optional -->
+                    </div>
+                </div>
+
+                <!-- Dropdown for selecting "Transport" -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-building"></i></span>
+                        <select 
+                          class="w-12" 
+                          pInputText 
+                          formControlName="transport" 
+                          title="branch">
+                          <option value="" disabled>Select Transport(s)</option>
+                          <option *ngFor="let transport of transports" [value]="transport.id">
+                              {{ transport.transportation }} {{ transport.capacity }}
+                          </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save and Cancel buttons -->
+            <div class="flex justify-content-center flex-wrap">
+                <button 
+                  pButton 
+                  pRipple 
+                  label="Save" 
+                  icon="pi pi-save" 
+                  severity="info" 
+                  class="mr-4"
+                  type="submit" 
+                  [disabled]="form.invalid">
+                </button>
+                <button 
+                  pButton 
+                  pRipple 
+                  label="Cancel" 
+                  icon="pi pi-times-circle" 
+                  severity="warning" 
+                  class="mr-4"
+                  type="button" 
+                  (click)="cancel()">
+                </button>
+            </div>
+        </form>
+    </div>
+</p-card>

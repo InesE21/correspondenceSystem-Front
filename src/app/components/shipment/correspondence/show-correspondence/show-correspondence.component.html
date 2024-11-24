@@ -1,0 +1,81 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap">
+        <h3 class="ml-4">Correspondences</h3>
+        <div class="mt-2 mr-2">
+          <a
+            pButton
+            pRipple
+            label="Add Correspondence"
+            icon="pi pi-user-plus"
+            class="bg-cyan-600"
+            [routerLink]="['/shipments/correspondence/new']"
+          >
+          </a>
+        </div>
+      </div>
+    </ng-template>
+  
+    <p>
+      <p-table [value]="correspondences">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Type</th>
+            <th>Weight</th>
+            <th>Dimensions</th>
+            <th>Shipment Date</th>
+            <th>Delivery Date</th>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Service</th>
+            <th class="flex justify-content-center flex-wrap">Actions</th>
+          </tr>
+        </ng-template>
+  
+        <ng-template pTemplate="body" let-correspondence>
+          <tr>
+            <td>{{ correspondence.code }}</td>
+            <td>{{ correspondence.correspondenceType }}</td>
+            <td>{{ correspondence.weight }}</td>
+            <td>{{ correspondence.dimensions }}</td>
+            <td>{{ correspondence.shipmentDate }}</td>
+            <td>{{ correspondence.deliveryDate }}</td>
+            <td>{{ correspondence.sender }}</td>
+            <td>{{ correspondence.receiver }}</td>
+            <td>{{ correspondence.service }}</td>
+            <td>
+              <button
+                pButton
+                pRipple
+                icon="pi pi-print"
+                class="bg-cyan-600 mr-1"
+              >
+              </button>
+  
+              <a
+                pButton
+                pRipple
+                icon="pi pi-sync"
+                severity="warning"
+                class="mr-1"
+                [routerLink]="['/shipments/correspondence/edit', correspondence.id]"
+              >
+              </a>
+  
+              <button
+                pButton
+                pRipple
+                severity="danger"
+                icon="pi pi-eraser"
+                class="mr-1"
+                (click)="delete(correspondence.id)"
+              >
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-card>
+  

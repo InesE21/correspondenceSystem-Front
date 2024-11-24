@@ -1,0 +1,80 @@
+<!-- 
+  Component: Update Route Form
+  Purpose:
+  This form allows the user to update an existing route's details, such as origin, destination, stops, and transport options.
+  Features:
+  - Uses Angular Reactive Forms for form management.
+  - Includes validation for required fields: origin, destination, and transport.
+  - Provides options for selecting transport(s) dynamically populated from a service.
+-->
+
+<p-card header="Update Route" [style]="{ width: '100%' }">
+    <div>
+        <!-- The form is bound to the Reactive FormGroup `form` -->
+        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+            <div class="grid">
+                <!-- Origin Input Field -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="origin" placeholder="Origin">
+                        <!-- Validation Message for Origin -->
+                        <div *ngIf="origin?.invalid && origin?.touched" class="p-error">
+                            Origin is required.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination Input Field -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="destination" placeholder="Destination">
+                        <!-- Validation Message for Destination -->
+                        <div *ngIf="destination?.invalid && destination?.touched" class="p-error">
+                            Destination is required.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stops Input Field (Optional) -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-wallet"></i></span>
+                        <input class="w-12" type="number" pInputText formControlName="stops" placeholder="Stops">
+                        <!-- No error message as this field is optional -->
+                    </div>
+                </div>
+
+                <!-- Transport Selection Dropdown -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-building"></i></span>
+                        <select 
+                          class="w-12" 
+                          pInputText 
+                          formControlName="transport" 
+                          title="branch">
+                          <!-- Placeholder option -->
+                          <option value="" disabled>Select Transport(s)</option>
+                          <!-- Dynamic options populated from `transports` array -->
+                          <option *ngFor="let transport of transports" [value]="transport.id">
+                            {{ transport.transportation }} {{ transport.capacity }}
+                          </option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+
+            <!-- Buttons for Save and Cancel -->
+            <div class="flex justify-content-center flex-wrap">
+                <!-- Save Button: Disabled if the form is invalid -->
+                <button pButton pRipple label="Save" icon="pi pi-save" severity="info" class="mr-4"
+                    type="submit" [disabled]="form.invalid"></button>
+                <!-- Cancel Button: Navigates back to the previous page -->
+                <button pButton pRipple label="Cancel" icon="pi pi-times-circle" severity="warning" class="mr-4"
+                    type="button" (click)="cancel()"></button>
+            </div>
+        </form>
+    </div>
+</p-card>

@@ -1,0 +1,77 @@
+<p-card class="w-12 h-full">
+  <!-- Header of the card with a title and an 'Add Employee' button -->
+  <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap">
+          <h3 class="ml-4">Employees</h3> <!-- Title of the card -->
+          <div class="mt-2 mr-2">
+              <!-- Button to navigate to the 'Add Employee' form -->
+              <a
+                  pButton
+                  pRipple
+                  label="Add Employee"
+                  icon="pi pi-user-plus"
+                  class="bg-cyan-600" 
+                  [routerLink]="['/persons/employee/new']" 
+              >
+              </a>
+          </div>
+      </div>
+  </ng-template>
+
+  <!-- Table to display the list of employees -->
+  <p>
+      <p-table [value]="employees"> <!-- Table that receives 'employees' as data -->
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Name</th> <!-- Column for employee name -->
+                  <th>Position</th> <!-- Column for employee position -->
+                  <th>Branch</th> <!-- Column for employee branch -->
+                  <th>Assigned Route</th> <!-- Column for assigned route -->
+                  <th class="flex justify-content-center flex-wrap">Actions</th> <!-- Column for action buttons -->
+              </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-employee>
+              <tr>
+                  <!-- Display the employee data in the table rows -->
+                  <td>{{ employee.fullname }}</td> <!-- Employee full name -->
+                  <td>{{ employee.position }}</td> <!-- Employee position -->
+                  <td>{{ employee.branch }}</td> <!-- Employee branch -->
+                  <td>{{ employee.assignedRoute }}</td> <!-- Employee assigned route -->
+                  <td>
+                      <!-- Print button (functionality not defined yet) -->
+                      <button
+                          pButton
+                          pRipple
+                          icon="pi pi-print"
+                          class="bg-cyan-600 mr-1"
+                      >
+                      </button>
+
+                      <!-- Edit button, navigates to the employee edit page -->
+                      <a
+                          pButton
+                          pRipple
+                          icon="pi pi-sync"
+                          severity="warning"
+                          class="mr-1"
+                          [routerLink]="['/persons/employee/edit', employee.id]"
+                      >
+                      </a>
+
+                      <!-- Delete button, triggers the delete function -->
+                      <button
+                          pButton
+                          pRipple
+                          severity="danger"
+                          icon="pi pi-eraser"
+                          class="mr-1"
+                          (click)="delete(employee.id)" 
+                      >
+                      </button>
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+  </p>
+</p-card>

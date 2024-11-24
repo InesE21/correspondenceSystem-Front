@@ -1,0 +1,106 @@
+<!-- A form card for updating a service, designed using PrimeNG components for a clean and responsive layout. -->
+
+<p-card header="Update Service" [style]="{ width: '100%' }"> 
+  <!-- The card's header title. The [style] binding ensures the card takes up the full width. -->
+
+  <ng-template pTemplate="header"></ng-template> 
+  <!-- Placeholder for additional content in the header, if needed. -->
+
+  <div>
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+      <!-- Reactive form bound to the component's 'form' object.
+           - novalidate: Prevents native browser validation.
+           - (ngSubmit): Calls the 'onSubmit()' method on form submission.
+           - class: Adds padding and faded background for styling. -->
+
+      <div class="grid">
+        <!-- Grid layout to align form fields in rows and columns. -->
+
+        <!-- Transportation Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Input group for transportation field with an icon. -->
+
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-truck"></i>
+              <!-- Truck icon indicating the transportation field. -->
+            </span>
+
+            <select 
+              class="w-12 p-inputtext" 
+              formControlName="transportation" 
+              title="Transportation"
+            >
+              <!-- Dropdown for selecting transportation type.
+                   - Bound to the 'transportation' form control.
+                   - Includes default and specific options. -->
+              <option value="" disabled selected>Choose Transportation</option>
+              <option value="EXPRESS">Express</option>
+              <option value="NORMAL">Normal</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Cost Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Input group for the cost field with an icon. -->
+
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-wallet"></i>
+              <!-- Wallet icon indicating the cost field. -->
+            </span>
+
+            <input 
+              class="w-12" 
+              type="number" 
+              pInputText 
+              formControlName="cost" 
+              placeholder="Cost" 
+              title="Cost"
+            >
+            <!-- Input for entering the service cost.
+                 - Bound to the 'cost' form control.
+                 - Placeholder and title provide context. -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-content-center flex-wrap">
+        <!-- Flexbox layout for centering buttons with wrapping support. -->
+
+        <button
+          pButton
+          pRipple
+          label="Save"
+          icon="pi pi-save"
+          severity="info"
+          class="mr-4"
+          type="submit"
+        >
+          <!-- Save button triggers form submission.
+               - Ripple effect for enhanced UI feedback.
+               - Displays 'Save' label with a save icon. -->
+        </button>
+
+        <button
+          pButton
+          pRipple
+          label="Cancel"
+          icon="pi pi-times-circle"
+          severity="warning"
+          class="mr-4"
+          type="button"
+          (click)="cancel()"
+        >
+          <!-- Cancel button navigates back to the service list page.
+               - Calls the 'cancel()' method on click. -->
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <ng-template pTemplate="footer"></ng-template> 
+  <!-- Placeholder for additional content in the footer, if needed. -->
+</p-card>

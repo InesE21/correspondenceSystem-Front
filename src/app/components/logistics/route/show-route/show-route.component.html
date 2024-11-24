@@ -1,0 +1,82 @@
+<p-card class="w-12 h-full">
+  <!-- Header Template -->
+  <ng-template pTemplate="header">
+    <!-- Flex container for title and add button -->
+    <div class="flex justify-content-between flex-wrap">
+      <!-- Title -->
+      <h3 class="ml-4">Routes</h3>
+      <!-- "Add Routes" button -->
+      <div class="mt-2 mr-2">
+        <a
+          pButton
+          pRipple
+          label="Add Routes"
+          icon="pi pi-user-plus"
+          class="bg-cyan-600"
+          [routerLink]="['/logistics/route/new']"
+        >
+        </a>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Table displaying route data -->
+  <p>
+    <p-table [value]="routes">
+      <!-- Table Header -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Stops</th>
+          <th>Transport(s)</th>
+          <th class="flex justify-content-center flex-wrap">Actions</th>
+        </tr>
+      </ng-template>
+
+      <!-- Table Body -->
+      <ng-template pTemplate="body" let-route>
+        <tr>
+          <!-- Display route details -->
+          <td>{{ route.origin }}</td>
+          <td>{{ route.destination }}</td>
+          <td>{{ route.stops }}</td>
+          <td>{{ route.transport }}</td>
+          <td>
+            <!-- Action buttons -->
+            <!-- Print button -->
+            <button
+              pButton
+              pRipple
+              icon="pi pi-print"
+              class="bg-cyan-600 mr-1"
+            >
+            </button>
+
+            <!-- Update button -->
+            <a
+              pButton
+              pRipple
+              icon="pi pi-sync"
+              severity="warning"
+              class="mr-1"
+              [routerLink]="['/logistics/route/edit', route.id]"
+            >
+            </a>
+
+            <!-- Delete button -->
+            <button
+              pButton
+              pRipple
+              severity="danger"
+              icon="pi pi-eraser"
+              class="mr-1"
+              (click)="delete(route.id)"
+            >
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p>
+</p-card>

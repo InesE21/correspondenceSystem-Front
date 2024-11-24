@@ -1,0 +1,75 @@
+<p-card header="Create Transport" [style]="{ width: '100%' }">
+  <!-- Card header section, usually contains the title -->
+  <ng-template pTemplate="header"></ng-template>
+  <div>
+    <!-- Form bound to the FormGroup -->
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+
+      <div class="grid">
+        <!-- Transportation Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-truck"></i>  <!-- Icon for transportation -->
+            </span>
+            <select 
+              class="w-12 p-inputtext" 
+              formControlName="transportation" 
+              title="Transportation"
+            >
+              <option value="" disabled selected>Choose Transport</option> <!-- Default option -->
+              <option value="TRUCK">Truck</option>  <!-- Option for truck -->
+              <option value="PLANE">Plane</option>  <!-- Option for plane -->
+              <option value="MOTORBIKE">Motorbike</option>  <!-- Option for motorbike -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Capacity Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-wallet"></i>  <!-- Icon for capacity -->
+            </span>
+            <input 
+              class="w-12" 
+              type="number" 
+              pInputText 
+              formControlName="capacity" 
+              placeholder="Capacity" 
+              title="Capacity"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-content-center flex-wrap">
+        <!-- Save Button -->
+        <button
+          pButton
+          pRipple
+          label="Save"
+          icon="pi pi-save"
+          severity="info"
+          class="mr-4"
+          type="submit"
+        ></button>
+
+        <!-- Cancel Button -->
+        <button
+          pButton
+          pRipple
+          label="Cancel"
+          icon="pi pi-times-circle"
+          severity="warning"
+          class="mr-4"
+          type="button"
+          (click)="cancel()"
+        ></button>
+      </div>
+
+    </form>
+  </div>
+  <ng-template pTemplate="footer"></ng-template>
+</p-card>

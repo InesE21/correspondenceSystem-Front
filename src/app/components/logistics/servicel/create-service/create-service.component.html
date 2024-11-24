@@ -1,0 +1,89 @@
+<!-- 
+  This is the template for the Create Service component.
+  It uses PrimeNG's <p-card> to structure the form, with styling for responsiveness and usability.
+  The form includes fields for transportation type and cost, and buttons for saving or cancelling the operation.
+-->
+
+<p-card header="Create Service" [style]="{ width: '100%' }">
+  <!-- Optional template for the card header -->
+  <ng-template pTemplate="header"></ng-template>
+
+  <div>
+    <!-- Reactive form bound to the form group in the component -->
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+      
+      <!-- Form fields organized in a responsive grid -->
+      <div class="grid">
+
+        <!-- Transportation Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon for visual context -->
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-truck"></i>
+            </span>
+            <!-- Select input for transportation type -->
+            <select 
+              class="w-12 p-inputtext" 
+              formControlName="transportation" 
+              title="Transportation"
+            >
+              <option value="" disabled selected>Choose Transportation</option>
+              <option value="EXPRESS">Express</option>
+              <option value="NORMAL">Normal</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Cost Field -->
+        <div class="col-12 sm:col-6">
+          <div class="p-inputgroup mb-1">
+            <!-- Icon for cost field -->
+            <span class="p-inputgroup-addon">
+              <i class="pi pi-wallet"></i>
+            </span>
+            <!-- Number input for the cost of the service -->
+            <input 
+              class="w-12" 
+              type="number" 
+              pInputText 
+              formControlName="cost" 
+              placeholder="Cost" 
+              title="Cost"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-content-center flex-wrap">
+        <!-- Save Button -->
+        <button
+          pButton
+          pRipple
+          label="Save"
+          icon="pi pi-save"
+          severity="info"
+          class="mr-4"
+          type="submit"
+        ></button>
+
+        <!-- Cancel Button -->
+        <button
+          pButton
+          pRipple
+          label="Cancel"
+          icon="pi pi-times-circle"
+          severity="warning"
+          class="mr-4"
+          type="button"
+          (click)="cancel()"
+        ></button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Optional template for the card footer -->
+  <ng-template pTemplate="footer"></ng-template>
+</p-card>

@@ -1,0 +1,96 @@
+<!-- 
+  Template for ShowBranchComponent.
+  Displays a list of branches in a table format with options to add, edit, or delete branches.
+  The layout uses PrimeNG components, such as p-card and p-table.
+-->
+
+<p-card class="w-12 h-full">
+  <!-- 
+    p-card: A card container from PrimeNG that encapsulates the entire table and the "Add Branch" button.
+    - `class="w-12 h-full"` ensures the card spans full width and adjusts height as needed.
+  -->
+  <ng-template pTemplate="header">
+    <!-- Header Section -->
+    <div class="flex justify-content-between flex-wrap">
+      <!-- 
+        Flexbox container for header.
+        - Contains the title "Branches" on the left.
+        - Contains the "Add Branch" button on the right.
+      -->
+      <h3 class="ml-4">Branches</h3>
+      <div class="mt-2 mr-2">
+        <!-- "Add Branch" button -->
+        <a 
+          pButton 
+          pRipple
+          label="Add Branch" 
+          icon="pi pi-user-plus" 
+          class="bg-cyan-600"
+          [routerLink]="['/branch/new']"
+        >
+        </a>
+      </div>
+    </div>
+  </ng-template>
+
+  <p>
+    <!-- Table Section -->
+    <p-table [value]="branches">
+      <!-- 
+        p-table: PrimeNG table component to display data.
+        - `[value]="branches"` binds the table to the branches array.
+      -->
+
+      <!-- Table Header -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th class="flex justify-content-center flex-wrap">Actions</th>
+        </tr>
+      </ng-template>
+
+      <!-- Table Body -->
+      <ng-template pTemplate="body" let-branch>
+        <!-- 
+          Dynamically renders each row of the table using the "branch" object.
+          - `let-branch`: Represents each branch object from the branches array.
+        -->
+        <tr>
+          <td>{{ branch.nameB }}</td> <!-- Displays branch name -->
+          <td>{{ branch.location }}</td> <!-- Displays branch location -->
+          <td>
+            <!-- Print Button -->
+            <button 
+              pButton 
+              pRipple 
+              icon="pi pi-print" 
+              class="bg-cyan-600 mr-1"
+            ></button>
+
+            <!-- Edit Button -->
+            <a 
+              pButton 
+              pRipple 
+              icon="pi pi-sync" 
+              severity="warning" 
+              class="mr-1" 
+              [routerLink]="['/branch/edit', branch.id]"
+            ></a>
+
+            <!-- Delete Button -->
+            <button 
+              pButton 
+              pRipple 
+              severity="danger" 
+              icon="pi pi-eraser" 
+              class="mr-1" 
+              (click)="delete(branch.id)"
+            >
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p>
+</p-card>
