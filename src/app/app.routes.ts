@@ -32,6 +32,13 @@ import { UpdateIncidentComponent } from './components/shipment/incident/update-i
 import { ShowShippingComponent } from './components/shipment/shipping/show-shipping/show-shipping.component';
 import { CreateShippingComponent } from './components/shipment/shipping/create-shipping/create-shipping.component';
 import { UpdateShippingComponent } from './components/shipment/shipping/update-shipping/update-shipping.component';
+import { Query2Component } from './components/queries/query2/query2.component';
+import { Query1Component } from './components/queries/query1/query1.component';
+import { Query3Component } from './components/queries/query3/query3.component';
+import { Query4Component } from './components/queries/query4/query4.component';
+import { Query5Component } from './components/queries/query5/query5.component';
+import { Query6Component } from './components/queries/query6/query6.component';
+import { Query7Component } from './components/queries/query7/query7.component';
 
 
 // Defining application routes
@@ -87,4 +94,13 @@ export const routes: Routes = [
     { path: "shipments/shipping/show", component: ShowShippingComponent },  // Show all shipments
     { path: "shipments/shipping/new", component: CreateShippingComponent },  // Create a new shipment
     { path: "shipments/shipping/edit/:id", component: UpdateShippingComponent },  // Edit a specific shipment (based on ID)
+
+    // Queries-related routes
+    { path: "queries/query1/show", component: Query1Component}, // Show query 1
+    { path: "queries/query2/show", component: Query2Component}, // Show query 2
+    { path: "queries/query3/show", component: Query3Component}, // Show query 3
+    { path: "queries/query4/show", component: Query4Component}, // Show query 4
+    { path: "queries/query5/show", component: Query5Component}, // Show query 5
+    { path: "queries/query6/show", component: Query6Component}, // Show query 6
+    { path: "queries/query7/show", component: Query7Component}, // Show query 7
 ];

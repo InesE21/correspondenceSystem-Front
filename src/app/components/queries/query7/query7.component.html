@@ -1,0 +1,21 @@
+<div class="container">
+    <h3>Average Cost by Service Type</h3>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Service Type</th>
+          <th>Average Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of query7">
+          <td>{{ service.transportation }}</td>
+          <td>{{ service.average_cost | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="query7.length === 0">No data available.</p>
+  </div>
+  

@@ -65,7 +65,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this.loadData(); // Load initial data from services
-    this.loadImages(); // Fetch and display images for the gallery
   }
 
   /**
@@ -97,63 +96,40 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Updates the currently selected image in the gallery.
-   * image - The URL of the image to select
-   */
-  selectImage(image: string) {
-    this.currentImage = image;
-  }
-
-  /**
-   * Moves to the previous image in the gallery.
-   * Wraps around to the last image if the first image is currently selected.
-   */
-  prevImage() {
-    const currentIndex = this.images.indexOf(this.currentImage);
-    const prevIndex = (currentIndex - 1 + this.images.length) % this.images.length;
-    this.currentImage = this.images[prevIndex];
-  }
-
-  /**
-   * Moves to the next image in the gallery.
-   * Wraps around to the first image if the last image is currently selected.
-   */
-  nextImage() {
-    const currentIndex = this.images.indexOf(this.currentImage);
-    const nextIndex = (currentIndex + 1) % this.images.length;
-    this.currentImage = this.images[nextIndex];
-  }
-
-  /**
-   * Fetches images for the gallery from the PhotoService.
-   * Generates HTML content dynamically for rendering the gallery.
-   */
-  loadImages() {
-    this.photoService
-      .getImages()
-      .then((images: any[]) => {
-        // Construct HTML content for the gallery
-        this.galleryHtml = images
-          .map(
-            (image, index) => `
-            <div class="gallery-item">
-              <img src="${image.url}" alt="Image ${index + 1}" />
-              <h4>Title ${index + 1}</h4>
-            </div>
-          `
-          )
-          .join('');
-      })
-      .catch((error) => {
-        console.error('Error loading images:', error); // Log errors during image fetching
-      });
-  }
-
-  /**
    * Lifecycle hook: Invoked just before the component is destroyed.
    * Cleans up all active subscriptions to avoid memory leaks.
    */
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
   }
-}
+
+  // Carousel functionality to handle image sliding
+  private initCarousel() {
+    const track = document.getElementById('carousel-track') as HTMLElement;
+    const images = document.querySelectorAll('.carousel-image') as NodeListOf<HTMLImageElement>;
+    const totalImages = images.length;
+    let currentIndex = 0;
+  
+    const prevButton = document.getElementById('prev-btn')!;
+    const nextButton = document.getElementById('next-btn')!;
+  
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      updateCarousel();
+    });
+  
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalImages;
+      updateCarousel();
+    });
+  
+    function updateCarousel() {
+      const trackWidth = track.clientWidth;
+      track.style.transform = `translateX(-${currentIndex * trackWidth}px)`;
+    }
+  }
+  
+  ngAfterViewInit() {
+    this.initCarousel();
+  }
+}  

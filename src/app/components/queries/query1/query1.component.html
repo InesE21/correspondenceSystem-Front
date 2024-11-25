@@ -1,0 +1,51 @@
+<div class="container">
+    <h3>Pending Shipments for a Specific Customer</h3>
+  
+    <!-- Form for entering DNI -->
+    <div class="dni-input">
+      <label for="dniInput">Enter Customer DNI:</label>
+      <input 
+        type="number" 
+        id="dniInput" 
+        class="form-control" 
+        [(ngModel)]="dni" 
+        placeholder="Enter DNI"
+      />
+      <button 
+        class="btn btn-primary" 
+        (click)="fetchPendingShipments()"
+      >
+        Search
+      </button>
+    </div>
+  
+    <!-- Message if no shipments found -->
+    <p *ngIf="query1.length === 0 && searched" class="no-data">
+      No pending shipments found for the given DNI.
+    </p>
+  
+    <!-- Table for displaying shipments -->
+    <table *ngIf="query1.length > 0" class="table">
+      <thead>
+        <tr>
+          <th>Shipment ID</th>
+          <th>Status</th>
+          <th>Date & Time</th>
+          <th>Correspondence</th>
+          <th>Branch</th>
+          <th>Employee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shipment of query1">
+          <td>{{ shipment.id }}</td>
+          <td>{{ shipment.status }}</td>
+          <td>{{ shipment.dateTime | date: 'short' }}</td>
+          <td>{{ shipment.correspondence }}</td>
+          <td>{{ shipment.branch }}</td>
+          <td>{{ shipment.employee }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

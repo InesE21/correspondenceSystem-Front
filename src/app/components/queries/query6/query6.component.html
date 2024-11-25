@@ -1,0 +1,23 @@
+<div class="container">
+    <h3>Premium Customers with Most Activity</h3>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Customer DNI</th>
+          <th>Total Shipments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of query6">
+          <td>{{ customer.fullname }}</td>
+          <td>{{ customer.dni }}</td>
+          <td>{{ customer.total_sent }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="query6.length === 0">No premium customers to display.</p>
+  </div>
+  

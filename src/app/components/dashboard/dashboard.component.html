@@ -80,9 +80,18 @@ customized color themes for better visual distinction between panels.
             <span class="text-green-500 font-medium">Defined routes</span>
         </div>
     </div>
-    
-    <!-- Gallery Section -->
-    <div class="gallery-container">
-        <div class="gallery" [innerHTML]="galleryHtml"></div>
+</div> 
+
+<!-- Gallery Section -->
+<div class="carousel-wrapper">
+  <div class="carousel">
+    <div class="carousel-track" id="carousel-track">
+      <img src="images/galleria1.png" alt="Image 1" class="carousel-image">
+      <img src="images/galleria2.png" alt="Image 2" class="carousel-image">
+      <img src="images/galleria3.png" alt="Image 3" class="carousel-image">
+      <img src="images/galleria4.png" alt="Image 4" class="carousel-image">
     </div>
+    <button class="carousel-btn prev-btn" id="prev-btn">&lt;</button>
+    <button class="carousel-btn next-btn" id="next-btn">&gt;</button>
+  </div>
 </div>

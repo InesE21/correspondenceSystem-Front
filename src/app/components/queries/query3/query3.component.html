@@ -1,0 +1,20 @@
+<div class="container">
+    <h3>Shipments by Branch and Status</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Branch</th>
+          <th>Shipment Status</th>
+          <th>Total Shipments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shipment of query3">
+          <td>{{ shipment.branch_name }}</td>
+          <td>{{ shipment.shipment_status }}</td>
+          <td>{{ shipment.total_shipments }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

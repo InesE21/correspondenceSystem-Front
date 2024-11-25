@@ -1,0 +1,25 @@
+<div class="container">
+    <h3>Most Used Routes by Type of Transportation</h3>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Type of Transportation</th>
+          <th>Origin of the Route</th>
+          <th>Route Destination</th>
+          <th>Total Uses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let route of query5">
+          <td>{{ route.transport_type }}</td>
+          <td>{{ route.route_origin }}</td>
+          <td>{{ route.route_destination }}</td>
+          <td>{{ route.total_usage }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="query5.length === 0">There are no routes to show.</p>
+  </div>
+  

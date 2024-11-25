@@ -1,0 +1,30 @@
+<div class="container">
+    <h3>Unresolved Customer Incidents</h3>
+  
+    <!-- Input para ingresar el DNI -->
+    <div class="dni-input">
+      <label for="dni">Enter the Customer's DNI:</label>
+      <input type="number" id="dni" [(ngModel)]="dni" placeholder="DNI del Cliente" />
+      <button (click)="getIncidentsByDni()">Search Incidents</button>
+    </div>
+  
+    <table class="table" *ngIf="query4.length > 0">
+      <thead>
+        <tr>
+          <th>Description of the Incident</th>
+          <th>Resolution Status</th>
+          <th>Correspondence Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let incident of query4">
+          <td>{{ incident.description }}</td>
+          <td>{{ incident.resolutionStatus }}</td>
+          <td>{{ incident.correspondence__code }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="query4.length === 0">There are no unresolved incidents for this DNI.</p>
+  </div>
+  

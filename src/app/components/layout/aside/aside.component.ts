@@ -144,6 +144,47 @@ export class AsideComponent {
           },
         ]
       },
+      {
+        label: 'Queries',
+        icon: 'pi pi-search',
+        items: [
+          {
+            label: 'Query 1',
+            icon: 'pi pi-fw pi-eye',
+            routerLink: '/queries/query1/show',
+          },
+          {
+            label: 'Query 2',
+            icon: 'pi pi-fw pi-eye',
+            routerLink: '/queries/query2/show',
+          },
+          {
+            label: 'Query 3',
+            icon: 'pi pi-fw pi-eye',
+            routerLink: '/queries/query3/show',
+          },
+          {
+            label: 'Query 4',
+            icon: 'pi pi-fw pi-eye',
+            routerLink: '/queries/query4/show',
+          },
+          {
+            label: 'Query 5',
+            icon: 'pi pi-fw pi-eye',
+            routerLink: '/queries/query5/show',
+          },
+          {
+            label: 'Query 6',
+            icon: 'pi pi-fw pi-eye',
+            routerLink: '/queries/query6/show',
+          },
+          {
+            label: 'Query 7',
+            icon: 'pi pi-fw pi-eye',
+            routerLink: '/queries/query7/show',
+          },
+        ]
+      },
     ];
   }
 }
